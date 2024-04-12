@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Sleep maker</title>
+  
+<!-- Google Fonts에서 선택한 한글 폰트 링크 추가 -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* 전체 페이지에 걸친 폰트 변경 */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+</style>
+</head>
+<body>
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>TIMER</title>
+  </head>
+  <body>
+      <h1>TIMER</h1>
+      <ul>
+          <li>KR: <span id="koreaTime"></span></li>
+          <li> US(NW): <span id="usTime"></span></li>
+          <li>UK (L): <span id="ukTime"></span></li>
+          <li>CN (BJ): <span id="chinaTime"></span></li>
+          <li>JP: <span id="japanTime"></span></li>
+      </ul>
+
+      <script>
+          function updateTimes() {
+              const koreaTime = new Date().toLocaleString('ko-KR', {timeZone: 'Asia/Seoul'});
+              document.getElementById('koreaTime').textContent = koreaTime;
+
+              const usTime = new Date().toLocaleString('en-US', {timeZone: 'America/New_York'});
+              document.getElementById('usTime').textContent = usTime;
+
+              const ukTime = new Date().toLocaleString('en-GB', {timeZone: 'Europe/London'});
+              document.getElementById('ukTime').textContent = ukTime;
+
+              const chinaTime = new Date().toLocaleString('zh-CN', {timeZone: 'Asia/Shanghai'});
+              document.getElementById('chinaTime').textContent = chinaTime;
+
+              const japanTime = new Date().toLocaleString('ja-JP', {timeZone: 'Asia/Tokyo'});
+              document.getElementById('japanTime').textContent = japanTime;
+          }
+
+          // 매 초마다 시간 업데이트
+          setInterval(updateTimes, 1000);
+
+          // 페이지 로드 시 한 번은 바로 업데이트
+          updateTimes();
+      </script>
+  </body>
+  <ul>
+    <li><a href = "index.html">HOME</a></li>
+  </ul>
+
+<script src="script.js"></script>
+</body>
+</html>
